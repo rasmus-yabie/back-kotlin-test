@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class APIService() {
-    fun getAll(): List<String> = listOf("foo", "bar", "v1.0.1")
+    fun getAll(): List<String> = listOf("foo", "bar", "v1.0.2")
 
     fun getById(id: Long): List<String> = listOf("bar")
 
