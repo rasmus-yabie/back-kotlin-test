@@ -9,10 +9,12 @@ echo "REPOSITORY_HOST=${REPOSITORY_HOST}"
 echo "REPOSITORY_URI=${REPOSITORY_URI}"
 
 COMMIT_HASH="abcdef"
-IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
+IMAGE_TAG=bld-11
 echo "IMAGE_TAG=${IMAGE_TAG}"
-
-
+docker build -t $REPOSITORY_URI:latest .
+docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+docker push $REPOSITORY_URI:$IMAGE_TAG
+docker push $REPOSITORY_URI:latest
 
 # docker build -t back-kotlin-test .
 # docker tag back-kotlin-test:latest 495665774687.dkr.ecr.eu-north-1.amazonaws.com/back-kotlin-test:latest
