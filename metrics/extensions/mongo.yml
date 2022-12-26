@@ -1,0 +1,8 @@
+name: MongodbCustom
+version: 1.0
+enabled: true
+jmx:
+  - object_name: org.mongodb.driver:type=ConnectionPool,clusterId=*,host=*,port=*
+    metrics:
+      - attributes: Host, Port, MinSize, MaxSize, CheckedOutCount, Size
+        type: simple
