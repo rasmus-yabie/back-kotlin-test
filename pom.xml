@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.yabie.backend</groupId>
-	<artifactId>salesanalytics</artifactId>
+	<artifactId>kotlin-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>salesanalytics</name>
+	<name>kotlin-test</name>
 	<description>Test service delivering sales analytics data</description>
 	<properties>
 		<java.version>17</java.version>

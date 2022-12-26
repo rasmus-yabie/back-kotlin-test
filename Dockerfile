@@ -6,7 +6,7 @@ COPY settings.xml /root/.m2/
 COPY metrics/extensions/ /tmp/extensions/
 WORKDIR /tmp/
 
-RUN mvn package -X
+RUN mvn package -DskipTests
 
 #
 
@@ -14,5 +14,5 @@ RUN mvn package -X
 FROM arm64v8/openjdk:17
 MAINTAINER yabie.com
 EXPOSE 8080
-COPY target/salesanalytics-0.0.1-SNAPSHOT.jar salesanalytics-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","/salesanalytics-0.0.1-SNAPSHOT.jar"]
+COPY target/kotlin-test-0.0.1-SNAPSHOT.jar kotlin-test-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/kotlin-test-0.0.1-SNAPSHOT.jar"]
