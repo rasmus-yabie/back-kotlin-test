@@ -10,9 +10,8 @@ RUN mvn package -DskipTests
 
 #
 
-
 FROM arm64v8/openjdk:17
 MAINTAINER yabie.com
 EXPOSE 8080
-COPY target/kotlin-test-0.0.1-SNAPSHOT.jar kotlin-test-0.0.1-SNAPSHOT.jar
+COPY --from=MAVEN_TOOL_CHAIN /tmp/target/kotlin-test-0.0.1-SNAPSHOT.jar /kotlin-test-0.0.1-SNAPSHOT.jar
 ENTRYPOINT ["java","-jar","/kotlin-test-0.0.1-SNAPSHOT.jar"]
