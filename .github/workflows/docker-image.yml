@@ -19,9 +19,6 @@ jobs:
       with:
         maven-version: 3.8.2
 
-#    - name: Starter Docker OpenJDK
-#      uses: CUBETIQ/starter-docker-openjdk-actions@main
-
     - uses: actions/checkout@v2
 
     - name: Set up JDK 1.8
