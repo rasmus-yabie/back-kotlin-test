@@ -1,6 +1,7 @@
 #
 # ref: https://docs.github.com/en/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions
 # doc: https://github.com/sourcetoad/aws-codedeploy-action
+# doc: https://docs.github.com/en/actions/security-guides/encrypted-secrets
 #
 
 name: Create and publish a Docker image
@@ -69,8 +70,9 @@ jobs:
 
       - name: AWS CodeDeploy
         uses: sourcetoad/aws-codedeploy-action@v1
-        with:
+        env:
           codedeploy_name: d-A4M0OS3AM
           codedeploy_group: KotlinGitDeployTestGroup
+        with:
           s3_bucket: s3://tibell-link-code-deploy-backend-ecs/deploy
           s3_folder: kotlin-git-deploy
