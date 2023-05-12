@@ -1,5 +1,6 @@
 #
 # ref: https://docs.github.com/en/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions
+# doc: https://github.com/sourcetoad/aws-codedeploy-action
 #
 
 name: Create and publish a Docker image
@@ -61,6 +62,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           role-to-assume: arn:aws:iam::495665774687:user/terraform-admin
           aws-region: eu-north-1
 
