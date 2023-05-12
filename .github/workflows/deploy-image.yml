@@ -57,3 +57,17 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::495665774687:user/terraform-admin
+          aws-region: eu-north-1
+
+      - name: AWS CodeDeploy
+        uses: sourcetoad/aws-codedeploy-action@v1
+        with:
+          codedeploy_name: d-A4M0OS3AM
+          codedeploy_group: KotlinGitDeployTestGroup
+          s3_bucket: s3://tibell-link-code-deploy-backend-ecs/deploy
+          s3_folder: kotlin-git-deploy
