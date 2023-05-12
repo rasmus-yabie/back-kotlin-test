@@ -10,6 +10,10 @@ class APIService() {
 
     @Value("\${prop1}")
     lateinit var prop1: String;
+
+    @Value("\${environment}")
+    lateinit var environment: String;
+
     fun getAll(): List<String> = listOf("foo", "bar", "v1.0.6", param1, prop1)
 
     fun getById(id: Long): List<String> = listOf("bar")
